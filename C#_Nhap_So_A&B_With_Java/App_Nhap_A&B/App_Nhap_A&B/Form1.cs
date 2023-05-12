@@ -24,10 +24,10 @@ namespace App_Nhap_A_B
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.CreateNoWindow = true;
             startInfo.UseShellExecute = false;
-            startInfo.FileName = "\"C:\\Program Files\\Java\\jdk-17\\bin\\java.exe\"";
+            startInfo.FileName = "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe";
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.RedirectStandardOutput = true;
-            startInfo.WorkingDirectory = "D:\\C#_programming\\C#_Nhap_So_A&B_With_Java";
+            startInfo.WorkingDirectory = "D:\\C#_programming\\Githubfolder\\C_Sharp\\C#_Nhap_So_A&B_With_Java";
             startInfo.Arguments = $"duycop {txt_Nhap_A.Text} {txt_Nhap_B.Text}";
 
             try

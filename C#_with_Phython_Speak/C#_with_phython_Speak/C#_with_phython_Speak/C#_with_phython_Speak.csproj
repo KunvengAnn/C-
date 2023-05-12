@@ -100,7 +100,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="test_voice.py" />
+    <Content Include="image_speak_python.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

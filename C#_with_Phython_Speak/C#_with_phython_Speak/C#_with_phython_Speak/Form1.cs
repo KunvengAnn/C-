@@ -25,7 +25,7 @@ namespace C__with_phython_Speak
             ProcessStartInfo startInfo = new ProcessStartInfo()
             {
                 WindowStyle = ProcessWindowStyle.Hidden,
-                WorkingDirectory = @"D:\C#_programming\C#_with_Phython_Speak\C#_with_phython_Speak",
+                WorkingDirectory = @"D:\C#_programming\Githubfolder\C_Sharp\C#_with_Phython_Speak\C#_with_phython_Speak\C#_with_phython_Speak",
                 FileName = @"C:\Users\Veng Ann\AppData\Local\Programs\Python\Python311\python.exe",
                 Arguments = $"test_voice.py \"{textBox1.Text}",
                 RedirectStandardOutput = true,
@@ -38,7 +38,7 @@ namespace C__with_phython_Speak
             while (!p.StandardOutput.EndOfStream)
             {
                 string fn = p.StandardOutput.ReadLine(); // tên file
-                axWindowsMediaPlayer1.URL = @"D:\C#_programming\C#_with_Phython_Speak\C#_with_phython_Speak\" + fn; //play luôn 
+                axWindowsMediaPlayer1.URL = @"D:\C#_programming\Githubfolder\C_Sharp\C#_with_Phython_Speak\C#_with_phython_Speak\C#_with_phython_Speak\" + fn; //play luôn 
                 //axWindowsMediaPlayer1.Ctlcontrols.play();
             }
         }
