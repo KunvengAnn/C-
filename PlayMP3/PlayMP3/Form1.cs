@@ -33,12 +33,11 @@ namespace PlayMP3
 
         private void PAUSE_Click(object sender, EventArgs e)
         {
-            Player.controls.previous();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+             Player.controls.pause();
+             Player.controls.play();
 
         }
+
     }
 }
