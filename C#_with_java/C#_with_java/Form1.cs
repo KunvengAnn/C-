@@ -27,7 +27,7 @@ namespace C__with_java
                 WindowStyle = ProcessWindowStyle.Hidden,
                 WorkingDirectory = "D:\\C#_programming\\Githubfolder\\C_Sharp\\C#_with_java",
                 FileName = @"C:\Program Files\Java\jdk-17\bin\java.exe",
-                Arguments = $"duycop.java {txt_A.Text} \"{txt_B.Text}",
+                Arguments = $"duycop {txt_A.Text} {txt_B.Text}",
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,
                 UseShellExecute = false
@@ -41,7 +41,7 @@ namespace C__with_java
                 {
                     string line = p.StandardOutput.ReadLine(); // tên file                                            
                                                                //do somthing with line  
-                    Ket_qua.AppendText(line + "\r\n");//axWindowsMediaPlayer1.Ctlcontrols.play();
+                    Ket_qua.AppendText(line + "\r\n");
                 }
             }
             catch (Exception ex)

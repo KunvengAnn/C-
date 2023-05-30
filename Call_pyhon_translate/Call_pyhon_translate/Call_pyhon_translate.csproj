@@ -84,6 +84,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Capture.PNG" />
     <Content Include="dich.py" />
     <Content Include="gen_voice.py" />
   </ItemGroup>

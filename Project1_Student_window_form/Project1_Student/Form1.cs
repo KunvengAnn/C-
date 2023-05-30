@@ -106,5 +106,18 @@ namespace Project1_Student
                 Application.Exit();
             }
         }
+
+        private void txt_Tim_kiem_TextChanged(object sender, EventArgs e)
+        {
+            string ten = txt_Tim_kiem.Text;
+            command = connection.CreateCommand();
+            command.CommandText = "select * from SINHVIEN where TenSv like '"+ten+"%'";
+            command.ExecuteNonQuery();
+            //LoadData();
+            adapter.SelectCommand = command;
+            table.Clear();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+        }
     }
 }
