@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TimByTenSach = new System.Windows.Forms.TextBox();
             this.txtGhiChuSach = new System.Windows.Forms.TextBox();
             this.txtDongiaNhap = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSach = new System.Windows.Forms.DataGridView();
-            this.TimByTenSach = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSach)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(828, 519);
             this.panel1.TabIndex = 2;
+            // 
+            // TimByTenSach
+            // 
+            this.TimByTenSach.Location = new System.Drawing.Point(146, 187);
+            this.TimByTenSach.Multiline = true;
+            this.TimByTenSach.Name = "TimByTenSach";
+            this.TimByTenSach.Size = new System.Drawing.Size(175, 32);
+            this.TimByTenSach.TabIndex = 30;
             // 
             // txtGhiChuSach
             // 
@@ -258,21 +266,16 @@
             this.dgvSach.TabIndex = 0;
             this.dgvSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellContentClick);
             // 
-            // TimByTenSach
-            // 
-            this.TimByTenSach.Location = new System.Drawing.Point(146, 187);
-            this.TimByTenSach.Multiline = true;
-            this.TimByTenSach.Name = "TimByTenSach";
-            this.TimByTenSach.Size = new System.Drawing.Size(175, 32);
-            this.TimByTenSach.TabIndex = 30;
-            // 
             // fC_SachHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(834, 521);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fC_SachHangHoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fC_SachHangHoa";
             this.Load += new System.EventHandler(this.fC_SachHangHoa_Load);
             this.panel1.ResumeLayout(false);

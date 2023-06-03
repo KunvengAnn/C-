@@ -49,5 +49,20 @@ namespace QLBS
             this.Show();
             //this.Dispose();
         }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Do you Want To Close Application now??", "Question?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if(rs == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void tìmKiểmHóaĐơnDặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fTimKiemHoaDonDatHang fTim = new fTimKiemHoaDonDatHang();
+            this.Hide(); fTim.ShowDialog(); this.Show();
+        }
     }
 }

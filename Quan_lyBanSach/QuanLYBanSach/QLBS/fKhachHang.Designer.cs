@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTimkhach = new System.Windows.Forms.TextBox();
             this.btncloseKhach = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnEditKhach = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.txt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvKhach = new System.Windows.Forms.DataGridView();
-            this.txtTimkhach = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhach)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(826, 521);
             this.panel1.TabIndex = 2;
+            // 
+            // txtTimkhach
+            // 
+            this.txtTimkhach.Location = new System.Drawing.Point(146, 131);
+            this.txtTimkhach.Multiline = true;
+            this.txtTimkhach.Name = "txtTimkhach";
+            this.txtTimkhach.Size = new System.Drawing.Size(175, 27);
+            this.txtTimkhach.TabIndex = 25;
             // 
             // btncloseKhach
             // 
@@ -215,21 +223,16 @@
             this.dgvKhach.TabIndex = 0;
             this.dgvKhach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhach_CellContentClick);
             // 
-            // txtTimkhach
-            // 
-            this.txtTimkhach.Location = new System.Drawing.Point(146, 131);
-            this.txtTimkhach.Multiline = true;
-            this.txtTimkhach.Name = "txtTimkhach";
-            this.txtTimkhach.Size = new System.Drawing.Size(175, 27);
-            this.txtTimkhach.TabIndex = 25;
-            // 
             // fKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 521);
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(834, 521);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fKhachHang";
             this.Load += new System.EventHandler(this.fKhachHang_Load);
             this.panel1.ResumeLayout(false);

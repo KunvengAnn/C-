@@ -14,3 +14,16 @@ D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLB
 D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.fHoaDonDatHang.resources
 D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.fKhachHang.resources
 D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.csproj.ResolveComReference.cache
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\Newtonsoft.Json.dll
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\System.ComponentModel.Annotations.dll
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\Telegram.Bot.dll
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\Newtonsoft.Json.xml
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\Telegram.Bot.pdb
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\bin\Debug\Telegram.Bot.xml
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.csproj.CopyComplete
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.fTimKiemHoaDonDatHang.resources
+D:\C#_programming\Bai_Tap_Lon_C#\Quan_lyBanSach\QuanLYBanSach\QLBS\obj\Debug\QLBS.fLogin.resources
