@@ -1,0 +1,201 @@
+-- Bảng KHACHHANG 
+CREATE TABLE KHACHHANG 
+( 
+MA_KH NVARCHAR(30) NOT NULL, 
+TEN_KH NVARCHAR(100) NOT NULL, 
+DIACHI_KH NVARCHAR(200) NOT NULL, 
+SODT_KH CHAR(10) NOT NULL, 
+CONSTRAINT PK_KH PRIMARY KEY(MA_KH) 
+); -- Bảng C_SACH 
+CREATE TABLE C_SACH 
+( 
+MA_SA NVARCHAR(30) NOT NULL, 
+TEN_SA NVARCHAR(300) NOT NULL, 
+SOLUONG INT NOT NULL, 
+GIANHAP FLOAT NOT NULL, 
+GIABAN FLOAT NOT NULL, 
+GHICHU NVARCHAR(200) NULL, 
+CONSTRAINT PK_C_SACH PRIMARY KEY(MA_SA) 
+); -- Bảng NHANVIEN 
+CREATE TABLE NHANVIEN 
+( 
+MA_NV NVARCHAR(30) NOT NULL, 
+TEN_NV NVARCHAR(100) NOT NULL, 
+GIOITINH NVARCHAR(10) NOT NULL, 
+DIACHI NVARCHAR(200) NOT NULL, 
+SODT_NV NVARCHAR(10) NOT NULL, 
+CONSTRAINT PK_NV PRIMARY KEY(MA_NV) 
+); -- Bảng DATHANG 
+CREATE TABLE DATHANG 
+( 
+MA_DATHANG NVARCHAR(30) NOT NULL, 
+MA_NV NVARCHAR(30) NOT NULL, 
+NGAYLAP DATETIME, 
+MA_KH NVARCHAR(30), 
+TongTien FLOAT, 
+CONSTRAINT PK_DATHANG PRIMARY KEY(MA_DATHANG), 
+18 
+Bài tập lớn Hệ quản trị cơ sở dữ liệu 
+); -- Bảng C_DATHANG 
+CREATE TABLE C_DATHANG 
+( 
+MA_DATHANG NVARCHAR(30) NOT NULL, 
+MA_SA NVARCHAR(30) NOT NULL, 
+SOLUONG INT, 
+DONGIA FLOAT, 
+GIAMGIA FLOAT, 
+THANH_TIEN FLOAT, 
+CONSTRAINT PK_C_DATHANG PRIMARY KEY(MA_DATHANG), 
+);
+
+////////////////////////////////////////////////////
+
+-- Tạo ràng buộc khóa ngoại cho bảng DATHANG 
+ALTER TABLE DATHANG 
+ADD CONSTRAINT FK_DATHANG_NV FOREIGN KEY (MA_NV) 
+REFERENCES NHANVIEN(MA_NV) 
+ON DELETE CASCADE;-- xóa data ở bảng khóa chính thì khóa ngoại tự xóa 
+ALTER TABLE DATHANG 
+ADD CONSTRAINT FK_DATHANG_KH FOREIGN KEY (MA_KH) 
+REFERENCES KHACHHANG(MA_KH) 
+ON DELETE CASCADE; -- Tạo ràng buộc khóa ngoại cho bảng C_DATHANG 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT FK_C_DATHANG_DATHANG FOREIGN KEY 
+(MA_DATHANG) 
+REFERENCES DATHANG(MA_DATHANG) 
+ON DELETE CASCADE; 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT FK_C_DATHANG_SA FOREIGN KEY (MA_SA) 
+REFERENCES C_SACH(MA_SA) 
+ON DELETE CASCADE; -- Tạo điều kiện kiểm tra cho bảng KHACHHANG 
+ALTER TABLE KHACHHANG 
+ADD CONSTRAINT CHK_SODT_KH CHECK (LEN(SODT_KH) = 10 AND 
+SODT_KH LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'); 
+19 
+Bài tập lớn Hệ quản trị cơ sở dữ liệu -- Tạo điều kiện kiểm tra cho bảng C_SACH 
+ALTER TABLE C_SACH 
+ADD CONSTRAINT CHK_SOLUONG CHECK (SOLUONG > 0); -- Tạo điều kiện kiểm tra cho bảng NHANVIEN 
+ALTER TABLE NHANVIEN 
+ADD CONSTRAINT CHK_SODT_NV CHECK (LEN(SODT_NV) = 10 AND 
+SODT_NV LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'); --ALTER TABLE NHANVIEN --ADD CONSTRAINT CK_SODT_VALIDATION CHECK (SODT_NV LIKE 
+'[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'); -- Tạo điều kiện kiểm tra cho bảng DATHANG 
+ALTER TABLE DATHANG 
+ADD CONSTRAINT CHK_TONGTIEN CHECK (TongTien >= 0); -- Tạo điều kiện kiểm tra cho bảng C_DATHANG 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT CHK_SOLUONG_CDATHANG CHECK (SOLUONG 
+> 0); 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT CHK_DONGIA CHECK (DONGIA > 0); 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT CHK_GIAMGIA CHECK (GIAMGIA >= 0 AND 
+GIAMGIA < 100); 
+ALTER TABLE C_DATHANG 
+ADD CONSTRAINT CHK_THANHTIEN CHECK (THANH_TIEN >= 0); 
+
+////////////////////////////////////////////////////////////////////////
+
+3.3. Tạo Procedure -- Stored Procedure: Lấy thông tin đơn hàng của khách hàng 
+CREATE PROCEDURE GetOrderDetails 
+@MA_KH NVARCHAR(30) 
+AS 
+BEGIN 
+SELECT * 
+FROM DATHANG 
+WHERE MA_KH = @MA_KH; 
+END; 
+GO 
+20 
+Bài tập lớn Hệ quản trị cơ sở dữ liệu --chạy test 
+EXEC GetOrderDetails 'KH01'; -- Stored Procedure: Thêm khách hàng mới 
+CREATE PROCEDURE AddCustomer 
+@MA_KH NVARCHAR(30), 
+@TEN_KH NVARCHAR(100), 
+@DIACHI_KH NVARCHAR(200), 
+@SODT_KH CHAR(10) 
+AS 
+BEGIN 
+INSERT INTO KHACHHANG (MA_KH, TEN_KH, DIACHI_KH, 
+SODT_KH) 
+VALUES (@MA_KH, @TEN_KH, @DIACHI_KH, @SODT_KH); 
+END; 
+GO --chạy test 
+EXEC AddCustomer 'KH99','TTEST','KO BIET','0394938' ; 
+
+////////////////////////////////////////////////////
+.Tạo User Function -- User Function: Tính tổng SoLuong C_DATHANG 
+CREATE FUNCTION dbo.CalculateTotalQuantity 
+( 
+@MaDathang NVARCHAR(30) 
+) 
+RETURNS INT 
+AS 
+BEGIN 
+DECLARE @TotalQuantity INT; 
+SET @TotalQuantity = ( 
+SELECT SUM(SOLUONG) 
+FROM C_DATHANG 
+WHERE MA_DATHANG = @MaDathang 
+); 
+RETURN @TotalQuantity; 
+END; --test 
+SELECT dbo.CalculateTotalQuantity('MD01') AS TotalQuantity; -- User Function: Tính tổng tiền đơn hàng 
+CREATE FUNCTION CalculateTotalPrice 
+( 
+21 
+Bài tập lớn Hệ quản trị cơ sở dữ liệu 
+@MA_DATHANG NVARCHAR(30) 
+) 
+RETURNS FLOAT 
+AS 
+BEGIN 
+DECLARE @TotalPrice FLOAT; 
+SELECT @TotalPrice = SUM(THANH_TIEN) 
+FROM C_DATHANG 
+WHERE MA_DATHANG = @MA_DATHANG; 
+RETURN @TotalPrice; 
+END; 
+GO --chạy test 
+SELECT dbo.CalculateTotalPrice('MD01') AS TotalPrice; 
+3.5. Tạo Trigger 
+CREATE TRIGGER TR_C_DATHANG_DELETE 
+ON C_DATHANG 
+AFTER DELETE 
+AS 
+BEGIN -- Thực hiện các hành động sau khi xóa bản ghi từ bảng C_DATHANG -- Ví dụ: Xóa các bản ghi tương ứng từ bảng DATHANG 
+DELETE FROM DATHANG 
+WHERE MA_DATHANG IN (SELECT MA_DATHANG FROM 
+DELETED); 
+END; ----test 
+DELETE FROM C_DATHANG WHERE MA_DATHANG = 'MD02' -- Trigger: Kiểm tra số lượng sách trong đơn hàng trước khi thêm vào 
+DATHANG CON HAY KO 
+CREATE TRIGGER CheckBookQuantity 
+ON C_DATHANG 
+FOR INSERT 
+AS 
+BEGIN 
+DECLARE @MA_SA NVARCHAR(30); 
+DECLARE @SOLUONG INT; 
+SELECT @MA_SA = MA_SA, @SOLUONG = SOLUONG 
+22 
+Bài tập lớn Hệ quản trị cơ sở dữ liệu 
+FROM inserted; 
+IF @SOLUONG <= 0 
+BEGIN 
+RAISERROR('Số lượng sách không hợp lệ', 16, 1); --là 16, 1 mã lỗi trong 
+sql (severity level) 
+ROLLBACK TRANSACTION; 
+END; 
+ELSE 
+BEGIN 
+DECLARE @CurrentQuantity INT; 
+SELECT @CurrentQuantity = SOLUONG 
+FROM C_SACH 
+WHERE MA_SA = @MA_SA; 
+IF @CurrentQuantity < @SOLUONG 
+BEGIN 
+RAISERROR('Số lượng sách không đủ', 16, 1); 
+ROLLBACK TRANSACTION; 
+END; 
+END; 
+END; 
+GO
